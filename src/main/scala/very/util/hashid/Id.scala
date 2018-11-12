@@ -3,17 +3,14 @@ package very.util.hashid
 import org.pico.hashids._
 import org.pico.hashids.syntax._
 
-sealed trait Id {
-  type T
+sealed trait Id[T] {
 
   def hashId: String
 
   def dbId: T
 }
 
-case class IntId(hashId: String, dbId: Int) extends Id {
-  type T = Int
-}
+case class IntId(hashId: String, dbId: Int) extends Id[Int]
 
 object IntId {
   def apply(hashId: String)(implicit hashids: Hashids): IntId =
@@ -23,9 +20,7 @@ object IntId {
     IntId(dbId.hashid, dbId)
 }
 
-case class LongId(hashId: String, dbId: Long) extends Id {
-  type T = Long
-}
+case class LongId(hashId: String, dbId: Long) extends Id[Long]
 
 object LongId {
   def apply(hashId: String)(implicit hashids: Hashids): LongId =
