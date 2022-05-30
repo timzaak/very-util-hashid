@@ -2,6 +2,7 @@ package very.util.hashid
 import org.pico.hashids.Hashids
 import org.scalatest._
 
+/*
 class HashIdSpec extends FreeSpec with MustMatchers {
   "hashid" - {
     "intId test" in {
@@ -12,3 +13,4 @@ class HashIdSpec extends FreeSpec with MustMatchers {
   }
 
 }
+*/
